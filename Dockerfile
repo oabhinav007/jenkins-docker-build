@@ -1,9 +1,4 @@
-# Create Custom Docker Image
-FROM tomcat:latest
-
-# Maintainer
-MAINTAINER "Valaxy Technologies - DevOps-Realtime" 
-
-# copy war file on to container 
-COPY app/target/login-release.war /usr/local/tomcat/webapps/login.war
+FROM openjdk:8
 EXPOSE 8080
+ADD target/docker-jenkins-integration-sample.jar docker-jenkins-integration-sample.jar
+ENTRYPOINT ["java","-jar","/docker-jenkins-integration-sample.jar"]
